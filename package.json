@@ -1,0 +1,17 @@
+{
+  "name": "legit",
+  "version": "0.0.0",
+  "description": "checks whether you shit is legit or not",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.6.0",
+    "mongoose": "~3.8.12",
+    "body-parser": "^1.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Daniel Lucas",
+  "license": "ISC"
+}
