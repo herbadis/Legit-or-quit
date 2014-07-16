@@ -8,6 +8,7 @@
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
       legit = require('./legit'),
+
       HTTP_PORT = 8000,
       DATABASE_CONNECTION_URI = process.env.DATABASE_CONNECTION_URI;
 
@@ -37,7 +38,8 @@
    * Define the default application middleware
    */
 
-   app.use(bodyParser);
+   app.use(bodyParser.urlencoded({extended: true}));
+   app.use(bodyParser.json());
 
   /**
    * Route incoming request to the available resources
@@ -53,7 +55,7 @@
     var queryString = req.body.queryString;
     Query.find({query: queryString}, function(err, query) {
       if(err) res.send(500, 'ERR: ' + err);
-      if (query) {
+      else if (query) {
         res.send(200, query.isLegit);
       } else {
           var newQuery = new Query({string: searchQuery, isLegit: legit.evaluate(searchQuery)});

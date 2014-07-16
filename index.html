@@ -1,0 +1,15 @@
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+      $(document).ready(function(){
+        $.ajax({
+            url: 'https://api.present.tv/v1/status/show',
+            type: 'GET',
+            success: function(data) {
+              console.log(data);
+            },
+            error: function(data) {
+              console.log(data);
+            }
+        });
+    });
+</script>
